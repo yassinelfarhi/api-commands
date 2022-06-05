@@ -7,7 +7,7 @@ symfony console category:import
 ```
 ### run the following command to import products 
 ```
-symfony console category:import 
+symfony console product:import 
 ```
 
 ### starting a local serving then consuming api data
