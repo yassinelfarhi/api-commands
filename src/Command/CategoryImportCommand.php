@@ -16,7 +16,7 @@ use App\Entity\Category;
 
 #[AsCommand(
     name: 'category:import',
-    description: 'Add a short description for your command',
+    description: 'this comand allows to import categories using a json file',
 )]
 class CategoryImportCommand extends Command
 {
@@ -42,18 +42,7 @@ class CategoryImportCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        // $io = new SymfonyStyle($input, $output);
-        // $arg1 = $input->getArgument('arg1');
-
-        // if ($arg1) {
-        //     $io->note(sprintf('You passed an argument: %s', $arg1));
-        // }
-
-        // if ($input->getOption('option1')) {
-        //     // ...
-        // }
-
-        // $io->success('You have a new command! Now make it your own! Pass --help to see your options.');
+    
          $file = $this->projectDir . "/public/categories.json";
          $decoder = new Serializer([new ObjectNormalizer()],[new JsonEncoder()]);
 
@@ -68,7 +57,7 @@ class CategoryImportCommand extends Command
               $this->entityManager->flush();
          }
           return Command::SUCCESS;
-        // dd($category);
+      
 
     }
 
